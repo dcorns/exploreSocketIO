@@ -1,0 +1,26 @@
+<!--typical socket.io client-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io('http://localhost');  /*sets up connection to server [io(); would default the address
+                                              of the server that served the page], but this could be set to
+                                              something else.*/
+        socket.on('event1', function(data){
+            console.log(data);                  /*log the object sent buy the server*/
+            socket.emit('event2', {my: 'data'}); /*send data to the server*/
+        });
+
+        socket.on('test1',function(data){       /*No emitting needed, the client can just */
+            console.dir(data);                  /*listen and if nothing is sent by the server,*/
+        });                                     /*no harm done. This is why the same client can*/
+        socket.on('test2',function(data){       /*be used for many servers.*/
+            console.dir(data);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

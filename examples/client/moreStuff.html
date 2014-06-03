@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script>
+        var socket = io();
+var count = 0;
+        socket.on('rant', function(data){
+            document.write('<div>'+data+'</div>');
+            count++;
+            console.log(count);
+            if(count==1) document.write('<div>hello server</div>');
+            if(count % 5 ==0) document.write('<div>Shutup!</div>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
