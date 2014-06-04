@@ -3,6 +3,7 @@
  */
 'use strict';
 //Using Node Express
+//Of course their is less code required from you
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -14,11 +15,9 @@ app.get('/', function(req, res){
 });
 
 io.sockets.on('connection', function(socket){
-  socket.emit('event1', {hello:'world'});
+  socket.emit('event1', {howdy:'partner'});
   socket.on('event2', function (data){
   console.log(data);
-  socket.emit('test1',{datatest1:'Test1 Passed'});
-  socket.emit('test2',{datatest2:'Test2 Passed'});
   });
 });
 

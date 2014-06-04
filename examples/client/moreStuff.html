@@ -8,13 +8,14 @@
     <script>
         var socket = io();
 var count = 0;
+        //This code repeats because of the for loop on the server
         socket.on('rant', function(data){
             document.write('<div>'+data+'</div>');
             count++;
-            console.log(count);
             if(count==1) document.write('<div>hello server</div>');
             if(count % 5 ==0) document.write('<div>Shutup!</div>');
         });
+        //end of repeating code
     </script>
 </head>
 <body>

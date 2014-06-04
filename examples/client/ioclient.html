@@ -1,4 +1,6 @@
 <!--typical socket.io client-->
+        <!--This client will work for any socket.io server and is used for both the nod and
+        the node express example-->
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -9,15 +11,10 @@
                                               something else.*/
         socket.on('event1', function(data){
             console.log(data);                  /*log the object sent buy the server*/
-            socket.emit('event2', {my: 'data'}); /*send data to the server*/
+            socket.emit('event2', {client: 'client object'}); /*send data to the server*/
         });
 
-        socket.on('test1',function(data){       /*No emitting needed, the client can just */
-            console.dir(data);                  /*listen and if nothing is sent by the server,*/
-        });                                     /*no harm done. This is why the same client can*/
-        socket.on('test2',function(data){       /*be used for many servers.*/
-            console.dir(data);
-        });
+
     </script>
 </head>
 <body>

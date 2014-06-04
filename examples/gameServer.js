@@ -16,10 +16,23 @@ app.get('/', function(req, res){
 io.on('connection',function(socket){
   console.log('a user connected');
 
-  for(var a=0;a<40;a++){
-    socket.emit('rant','Hello Client');
-  }
+    socket.emit('start', {howdy:'partner'});
 
+socket.on('start', function(data){
+  data.x = 160; data.y = 80;
+  socket.emit('setdot',data);
+});
+  var r = .5;
+  socket.on('setdot',function(data){
+    console.log('dot:'+data.x+','+data.y);
+    for(var c=0;c<360;c++){
+      data.x = data.x + r * Math.cos(2 * Math.PI * c / 360);
+      data.y = data.y + r * Math.sin(2 * Math.PI * c / 360);
+      console.log(c+','+data.x+','+data.y);
+      socket.emit('drawstar',data);
+      console.log(data);
+    }
+  });
   socket.on('disconnect',function(){
     console.log('user disconnected');
   });

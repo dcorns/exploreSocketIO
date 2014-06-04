@@ -7,21 +7,30 @@
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <script>
         var socket = io();
-        var count = 0;
-        socket.on('rant', function(data){
-           // document.write('<div>'+data+'</div>');
-            count++;
-            console.log(count);
 
-            var ms = document.getElementById("mainspace");
-            var msc = ms.getContext("2d");
-            msc.fillRect(count, count, count, count);
-            msc.moveTo(10,200);
-            msc.lineTo(10,300);
-            msc.style = "#eee";
-            msc.stroke();
+        var dot ={x:0,y:0};
+        var can = {};
+        socket.on('start',function(){
 
+            can.el = document.getElementById("mainspace");
+            can.ctx = can.el.getContext("2d");
+            socket.emit('start', dot);
         });
+        socket.on('setdot',function(data){
+            dot = data;
+            socket.emit('setdot',dot);
+        });
+        socket.on('drawstar',function(data){
+            can.ctx.moveTo(dot.x,dot.y);
+            var lx = data.x;
+            var ly = data.y;
+            can.ctx.lineTo(lx,ly);
+            can.ctx.style = "#eee";
+            can.ctx.stroke();
+            console.log(dot);
+            console.log(lx+','+ly);
+        });
+
     </script>
 </head>
 <body>
