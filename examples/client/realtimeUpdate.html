@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>game.html</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script>
+        var socket = io(); //Start polling server for socket.io connection
+//Define canvas details
+        var dot ={x:0,y:0,t:0,c:1};
+        var can = {};
+        socket.on('start',function(){ //start sent to server on connect
+            can.el = document.getElementById("mainspace");
+            can.ctx = can.el.getContext("2d");
+            socket.emit('start', dot);  //send start info to server
+        });
+        socket.on('setdot',function(data){  //receive dot data from server
+            dot = data;
+            socket.emit('setdot',dot);
+        });
+        socket.on('drawstar',function(data){ //server calls this
+            can.ctx.moveTo(dot.x,dot.y);
+            var lx = data.x;
+            var ly = data.y;
+            can.ctx.lineTo(lx,ly);
+            can.ctx.style = "#eee";
+            can.ctx.clearRect(0, 0, can.el.width, can.el.height);
+            console.log('WH: '+can.el.width+','+can.el.height);
+            can.ctx.stroke();
+            console.dir('dot: '+dot);
+            console.log('xy: '+lx+','+ly);
+        });
+//Make changes to the server variables when input changes
+        function tweakChanged(){
+            var t = document.getElementById('tweakdesign');
+            var c = document.getElementById('tweakcount');
+            dot.t = t.value;
+            dot.c = c.value;
+            console.dir(dot);
+            socket.emit('setdot', dot);
+        }
+    </script>
+</head>
+<body>
+<input id = "tweakdesign" onchange="tweakChanged()"><input id = "tweakcount" onchange="tweakChanged()">
+<canvas id="mainspace" width="1000" height="500"></canvas>
+</body>
+</html>
