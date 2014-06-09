@@ -18,7 +18,7 @@ io.on('connection',function(socket){
 
     socket.emit('start', {howdy:'partner'});
 
-socket.on('start', function(data){
+  socket.on('start', function(data){
   data.x = 200; data.y = 200;
   socket.emit('setdot',data);
 });
@@ -29,8 +29,8 @@ socket.on('start', function(data){
     r = data.t || r;
     for(var c=0;c<data.c;c++){
       console.dir(data);
-        data.x = data.x + r * Math.cos(2 * Math.PI * c / 360);
-        data.y = data.y + r * Math.sin(2 * Math.PI * c / 360);
+      data.x = data.x + r * Math.cos(2 * Math.PI * c / 360);
+      data.y = data.y + r * Math.sin(2 * Math.PI * c / 360);
       console.log(c+','+data.x+','+data.y);
       socket.emit('drawstar',data);
       console.log(data);
