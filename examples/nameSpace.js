@@ -13,13 +13,6 @@ app.get('/', function(req, res){
   res.sendfile(__dirname + '/client/nameSpace.html');
 });
 
-io.sockets.on('connection', function(socket){
-  socket.emit('event1', {howdy:'partner'});
-  socket.on('event2', function (data){
-    console.log(data);
-  });
-});
-
 var nsp = io.of('/namespace1');
 nsp.on('connection', function(socket){
   console.log('someone connected to namespace1');

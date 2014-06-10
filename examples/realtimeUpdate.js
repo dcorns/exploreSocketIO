@@ -33,6 +33,7 @@ io.on('connection',function(socket){
       data.y = data.y + r * Math.sin(2 * Math.PI * c / 360);
       console.log(c+','+data.x+','+data.y);
       socket.emit('drawstar',data);
+      socket.broadcast.emit('drawstar',data);
       console.log(data);
     }
   });

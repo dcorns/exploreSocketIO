@@ -2,7 +2,22 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>rooms.html</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('connect', function(){
+            socket.emit('room','room1');
+        });
+socket.on('joined',function(data){
+    console.log(data);
+
+});
+socket.on('message',function(msg){
+    console.log(msg);
+});
+
+    </script>
 </head>
 <body>
 

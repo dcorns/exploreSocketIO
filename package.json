@@ -1,0 +1,27 @@
+{
+  "name": "SocketIOExplored",
+  "version": "0.0.0",
+  "description": "A study of socket.io",
+  "main": "server.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcorns/exploreSocketIO"
+  },
+  "author": "Dale Corns",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dcorns/exploreSocketIO/issues"
+  },
+  "homepage": "https://github.com/dcorns/exploreSocketIO",
+  "devDependencies": {
+    "express": "^4.3.2",
+    "koa": "^0.6.1",
+    "socket.io": "^1.0.2"
+  }
+}
