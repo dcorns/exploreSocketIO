@@ -22,6 +22,9 @@
   "devDependencies": {
     "express": "^4.3.2",
     "koa": "^0.6.1",
-    "socket.io": "^1.0.2"
+    "socket.io": "^1.0.2",
+    "koa-basic-auth": "^1.1.1",
+    "koa-route": "^1.1.4",
+    "koa-send": "^1.2.3"
   }
 }

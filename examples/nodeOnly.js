@@ -3,7 +3,7 @@
  */
 //Using node alone
 //uses the ioclient.html
-//Demonstrates bidirectional communication with node and socket.io
+//Demonstrates how to implement bidirectional communication with node and socket.io
 'use strict';
 var app = require('http').createServer(handler);
 var io = require('socket.io')(app);
@@ -12,6 +12,7 @@ var fs = require('fs');
 //Node Code
 app.listen(3000);
 
+//All sessions start with an http GET request
 function handler(req, res){
   fs.readFile(__dirname + '/client/ioclient.html',
     function(err, data) {
@@ -25,7 +26,7 @@ function handler(req, res){
 }
 
 
-//Socket.io code
+//Socket.io code; more than likely websocket protocol will be used at this point, if not, long polling will kick in
 io.sockets.on('connection', function(socket){
 
   socket.emit('event1', {hello: 'world'});//Send object to ioclient.html
