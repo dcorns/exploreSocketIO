@@ -6,21 +6,14 @@
         var socket = io('http://localhost');  /*sets up connection to server [io(); would default the address
          of the server that served the page], but this could be set to
          something else.*/
-        socket.on('data',function(data){
-           console.dir(data);
-        });
+
         socket.on('event1', function(data){
             console.log(data);                  /*log the object sent buy the server*/
         });
 
-        socket.on('error', function(data){
-            console.dir(data);
-        });
         socket.on('connect', function(){
             console.log('successful connection');
         });
-
-
 
     </script>
 </head>
