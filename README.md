@@ -13,11 +13,17 @@ Little will be gained from these examples by simply running the code. Logs to co
 
 For a more complete example, see <a href="https://github.com/dcorns/simplechat">simplechat</a>
 
-'nodeOnly'-Demonstrates how to establish communications in plain node.</br>
-'nodeExpress'-Demonstrates how to establish communications in node express.</br>
-'areYouDeaf'-Demonstrates basic interaction between the client and server.</br>
-'shutupalready'-Demonstrates the ability to spread a function across the client and server</br>
-'realtimeUpdate'-Demonstrates how changes on multiple clients are seamlessly update to all from the server without request</br>
-'nameSpace'-Demonstrates the implementation of name spacing</br>
+'nodeOnly'-Demonstrates how to establish communications in plain node.
+
+'nodeExpress'-Demonstrates how to establish communications in node express.
+
+'areYouDeaf'-Demonstrates basic interaction between the client and server.
+
+'shutupalready'-Demonstrates the ability to spread a function across the client and server
+
+'realtimeUpdate'-Demonstrates how changes on multiple clients are seamlessly update to all from the server without request
+
+'nameSpace'-Demonstrates the implementation of name spacing
+
 'rooms'-pending
 
