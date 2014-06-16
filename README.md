@@ -25,5 +25,5 @@ For a more complete example, see <a href="https://github.com/dcorns/simplechat">
 
 'nameSpace'-Demonstrates the implementation of name spacing
 
-'rooms'-pending
+'bievents'-Example of using the built in events
 
