@@ -1,14 +1,3 @@
-HI DALE!!!!!!!!
-
-
-
-
-
-
-
-
-
-
 exploreSocketIO
 ===============
 
