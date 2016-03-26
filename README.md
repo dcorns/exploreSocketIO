@@ -17,7 +17,7 @@ For a more complete example, see <a href="https://github.com/dcorns/simplechat">
 
 'nodeExpress'-Demonstrates how to establish communications in node express.
 
-'areYouDeaf'-Demonstrates basic interaction between the client and server.
+'canYouHearMe'-Demonstrates basic interaction between the client and server.
 
 'shutupalready'-Demonstrates the ability to spread a function across the client and server
 
